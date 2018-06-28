@@ -76,6 +76,9 @@
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.btnEliminarItem = new System.Windows.Forms.Button();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -554,11 +557,42 @@
             this.txtIdProducto.Size = new System.Drawing.Size(51, 20);
             this.txtIdProducto.TabIndex = 21;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(438, 127);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 15);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Descuento:";
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(511, 126);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.ReadOnly = true;
+            this.txtDescuento.Size = new System.Drawing.Size(60, 20);
+            this.txtDescuento.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(577, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "%";
+            // 
             // FrmRegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 515);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtDescuento);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.btnEliminarItem);
             this.Controls.Add(this.btnRegistrarVenta);
@@ -641,5 +675,8 @@
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.RadioButton rbnFactura;
         public System.Windows.Forms.RadioButton rbnBoleta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Label label5;
     }
 }

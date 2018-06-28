@@ -82,5 +82,11 @@ namespace Capa_de_Presentacion
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmDescuento D = new FrmDescuento();
+            D.Show();
+        }
     }
 }

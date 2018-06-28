@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +105,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnEmpleados);
             this.panel1.Controls.Add(this.btnVentas);
             this.panel1.Controls.Add(this.btnUsuarios);
@@ -128,7 +130,7 @@
             // btnVentas
             // 
             this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVentas.Location = new System.Drawing.Point(14, 207);
+            this.btnVentas.Location = new System.Drawing.Point(14, 270);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(170, 40);
             this.btnVentas.TabIndex = 0;
@@ -194,6 +196,17 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(14, 218);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 37);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Descuentos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +251,7 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button button1;
 
 
     }

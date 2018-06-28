@@ -60,6 +60,7 @@
     <Compile Include="clsCargo.cs" />
     <Compile Include="clsCategoria.cs" />
     <Compile Include="clsCliente.cs" />
+    <Compile Include="clsDescuento.cs" />
     <Compile Include="clsDetalleVenta.cs" />
     <Compile Include="clsEmpleado.cs" />
     <Compile Include="clsProducto.cs" />

@@ -17,6 +17,7 @@ namespace Capa_de_Presentacion
     {
         clsVentas Ventas = new clsVentas();
         clsDetalleVenta Detalle = new clsDetalleVenta();
+        clsDescuento descuento = new clsDescuento();
 
         private List<clsVenta> lst = new List<clsVenta>();
 
@@ -52,6 +53,7 @@ namespace Capa_de_Presentacion
             GenerarIdVenta();
             GenerarSeriedeDocumento();
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            ObtenerDescuento();
         }
 
         private void GenerarIdVenta() {
@@ -182,7 +184,7 @@ namespace Capa_de_Presentacion
         }
 
         private void LlenarGrilla() {
-            Decimal SumaSubTotal = 0; Decimal SumaIgv=0; Decimal SumaTotal=0;
+            Decimal SumaSubTotal = 0; Decimal SumaIgv = 0; Decimal SumaTotal = 0; Decimal Descuento = 0; Decimal a = 0;
             dataGridView1.Rows.Clear();
             for (int i = 0; i < lst.Count; i++)
             {
@@ -207,9 +209,15 @@ namespace Capa_de_Presentacion
             dataGridView1.Rows[lst.Count + 2].Cells[3].Value = "      I.G.V.        %";
             dataGridView1.Rows[lst.Count + 2].Cells[4].Value = SumaIgv;
             dataGridView1.Rows.Add();
-            dataGridView1.Rows[lst.Count + 3].Cells[3].Value = "     TOTAL     S/.";
+
+            dataGridView1.Rows[lst.Count + 3].Cells[3].Value = "DESCUENTO %";
+            dataGridView1.Rows[lst.Count + 3].Cells[4].Value = txtDescuento.Text;
+            dataGridView1.Rows.Add();
+
+            dataGridView1.Rows[lst.Count + 4].Cells[3].Value = "     TOTAL     S/.";
             SumaTotal += SumaSubTotal + SumaIgv;
-            dataGridView1.Rows[lst.Count + 3].Cells[4].Value = SumaTotal;
+            Descuento = SumaTotal * (Convert.ToDecimal(txtDescuento.Text) / 100);
+            dataGridView1.Rows[lst.Count + 4].Cells[4].Value = SumaTotal - Descuento;
             dataGridView1.ClearSelection();
         }
 
@@ -296,7 +304,7 @@ namespace Capa_de_Presentacion
 
         private void GuardarVenta()
         {
-            decimal Total=0;
+            decimal Total = 0; decimal descuento = 0; decimal desctotal = 0;
             if (Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value) != "") {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++){
 			        Total=Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value);
@@ -310,6 +318,7 @@ namespace Capa_de_Presentacion
             Ventas.TipoDocumento=TipoDocumento;
             Ventas.FechaVenta=Convert.ToDateTime(dateTimePicker1.Value);
             Ventas.Igv = Convert.ToDecimal(0.18);
+            Ventas.DescuentoVenta = Convert.ToDecimal(txtDescuento.Text) / 100;
             Ventas.Total=Total;
             DevComponents.DotNetBar.MessageBoxEx.Show(Ventas.RegistrarVenta(),"Sistema de Ventas.",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
@@ -345,6 +354,33 @@ namespace Capa_de_Presentacion
                 e.Handled = true;
             }
         }
+
+        private void ObtenerDescuento()
+        {
+            
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = descuento.ObtenerDescuentoDia();
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        txtDescuento.Text = dt.Rows[i][3].ToString();
+                    }
+                }
+                else
+                {
+                    txtDescuento.Text = "0";
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         //private void btnQuitar_Click(object sender, EventArgs e)
         //{
         //    DialogResult Resultado = new DialogResult();

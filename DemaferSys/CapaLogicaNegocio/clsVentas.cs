@@ -19,6 +19,7 @@ namespace CapaLogicaNegocio
        public string NroComprobante { get; set; }
        public string TipoDocumento { get; set; }
        public DateTime FechaVenta { get; set; }
+       public decimal DescuentoVenta { get; set; }
        public decimal Igv { get; set; }
        public decimal Total { get; set; }
 
@@ -73,6 +74,7 @@ namespace CapaLogicaNegocio
                lst.Add(new clsParametro("@NroDocumento",NroComprobante));
                lst.Add(new clsParametro("@TipoDocumento",TipoDocumento));
                lst.Add(new clsParametro("@FechaVenta",FechaVenta));
+               lst.Add(new clsParametro("@DescuentoVenta", DescuentoVenta));
                lst.Add(new clsParametro("@Igv", Igv));
                lst.Add(new clsParametro("@Total",Total));
                lst.Add(new clsParametro("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 100));
